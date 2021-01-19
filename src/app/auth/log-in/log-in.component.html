@@ -1,0 +1,43 @@
+<fieldset [formGroup]="formLogIn" align="center" class="d-flex parent">
+
+  <mat-card-title *ngIf="registrationSuccessMessage">Регистрация прошла успешно</mat-card-title>
+  <mat-card-title *ngIf="registrationSuccessMessage">Теперь можете войти в систему))</mat-card-title>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Телефон</mat-label>
+    <span matPrefix>+7 &nbsp;</span>
+    <input matInput required
+           [(ngModel)]="user.phone"
+           formControlName="phoneControl"
+           type="tel" mask="(000) 000-0000"
+    >
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Введите пароль</mat-label>
+    <input matInput required trim
+           formControlName="passwordControl"
+           [(ngModel)]="user.password"
+           [type]="viewPassword ? 'password' : 'text'"
+    >
+    <button mat-icon-button matSuffix (click)="viewPassword = !viewPassword">
+      <mat-icon>{{viewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <section>
+    <button (click)="submit()"
+            [disabled]="!formValid"
+            [style.opacity]="formValid ? 1 : 0.6"
+            mat-raised-button color="primary"
+    >Войти</button>
+  </section>
+
+  <section>
+    <button routerLink="/registration" mat-raised-button color="primary">Зарегестрироваться</button>
+  </section>
+
+  <mat-error *ngIf="error.hasError">{{ error.message }}</mat-error>
+
+</fieldset>

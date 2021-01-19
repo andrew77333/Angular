@@ -1,0 +1,54 @@
+<fieldset [formGroup]="formRegistration" align="center" class="d-flex parent">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ваше имя</mat-label>
+    <input #www matInput [(ngModel)]="user.name" formControlName="nameControl" trim>
+    <mat-icon matSuffix>account_circle</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Телефон</mat-label>
+    <span matPrefix>+7 &nbsp;</span>
+    <input matInput [(ngModel)]="user.phone"
+           formControlName="phoneControl"
+           type="tel" mask="(000) 000-0000" required
+    >
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Введите пароль</mat-label>
+    <input formControlName="passwordControl" matInput required trim
+           [(ngModel)]="user.password"
+           [type]="viewPassword ? 'password' : 'text'"
+    >
+    <button mat-icon-button matSuffix (click)="viewPassword = !viewPassword">
+      <mat-icon>{{viewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Повторите пароль</mat-label>
+    <input formControlName="passwordRepeatControl" matInput required trim
+           [(ngModel)]="passwordRepeat"
+           [type]="viewPassword ? 'password' : 'text'"
+    >
+    <button mat-icon-button matSuffix (click)="viewPassword = !viewPassword">
+      <mat-icon>{{viewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <section>
+    <button (click)="submit()"
+            [disabled]="!formValid"
+            [style.opacity]="formValid ? 1 : 0.6"
+            mat-raised-button color="primary"
+    >Зарегистрироваться</button>
+  </section>
+
+  <section>
+    <button routerLink="/log-in" mat-raised-button color="primary">Войти</button>
+  </section>
+
+  <mat-error *ngIf="error.hasError">{{ error.message }}</mat-error>
+
+</fieldset>

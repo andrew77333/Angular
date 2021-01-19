@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Введите имя и URL-адрес картинки</h1>
+<div mat-dialog-content>
+  <div class="flexColumn">
+    <mat-form-field>
+      <mat-label>Обязательное поле: Введите имя</mat-label>
+      <input #inputName matInput [(ngModel)]="newContact.name" required trim>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>НЕ обязательно. URL-адрес изображения</mat-label>
+      <input matInput [(ngModel)]="newContact.photo" trim>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Отмена</button>
+  <button mat-raised-button color="primary"
+          [mat-dialog-close]="newContact"
+          [disabled]="!inputName.checkValidity()"
+  >Ok</button>
+</div>

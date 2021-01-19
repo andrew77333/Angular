@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "phone": "1111111111",
+      "password": "111"
+    }
+  ],
+  "listContact": [
+    {
+      "id": 1,
+      "name": "Smile Kitty",
+      "photo": "assets/img/Smile_Kitty.jpg"
+    },
+    {
+      "id": 2,
+      "name": "kangaroo",
+      "photo": "assets/img/kangaroo.jpg"
+    },
+    {
+      "id": 3,
+      "name": "raccoon",
+      "photo": "assets/img/raccoon.jpg"
+    },
+    {
+      "id": 4,
+      "name": "tiger cub",
+      "photo": "assets/img/tiger_cub.jpg"
+    },
+    {
+      "id": 5,
+      "name": "eared",
+      "photo": "assets/img/eared.jpg"
+    },
+    {
+      "id": 6,
+      "name": "cat",
+      "photo": "assets/img/cat.jpg"
+    },
+    {
+      "id": 7,
+      "name": "big-eyed",
+      "photo": "assets/img/big_eyed.jpg"
+    },
+    {
+      "id": 8,
+      "name": "bear",
+      "photo": "assets/img/bear.jpg"
+    },
+    {
+      "id": 9,
+      "name": "animal not defined )))",
+      "photo": "assets/img/animal_not_defined.jpg"
+    }
+  ]
+}

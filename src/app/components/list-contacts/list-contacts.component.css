@@ -1,0 +1,46 @@
+.header {
+  position: relative;
+  top: 1vw;
+  display: flex;
+  justify-content: center;
+}
+.header section button {
+  margin-left: 3vw;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: space-around;
+}
+mat-card-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-actions button {
+  margin-bottom: 1vw;
+}
+
+.myCard {
+  width: 25vw;
+  height: 9vw;
+  margin: 1.5vw 0;
+  border-radius: 1vw;
+}
+
+.myCard img {
+  position: relative;
+  top: .5vw;
+  width: 8vw;
+  height: 8vw;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 1vw;
+}

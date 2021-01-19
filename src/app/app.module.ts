@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
+
 import { AppComponent } from './app.component';
+import { ListContactsComponent } from './components/list-contacts/list-contacts.component';
+import { DialogWindowContactComponent } from './components/dialog-window-contact/dialog-window-contact.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListContactsComponent,
+    DialogWindowContactComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    SharedModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
