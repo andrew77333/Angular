@@ -1,7 +1,8 @@
 # TestAuth
 
-Приложение работает с помощью json-server
-Для запуска сервера в терминале набрать json-server --watch db.json
+Приложение работает с помощью json-server.
+
+Для запуска сервера в терминале набрать json-server --watch db.json.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
 
