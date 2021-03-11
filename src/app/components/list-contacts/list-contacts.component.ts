@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
 
-import { of} from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import {of} from 'rxjs';
+import {switchMap} from 'rxjs/operators';
 
-import { AuthService, IContact } from '../../auth/auth.service';
-import { DialogWindowContactComponent } from '../dialog-window-contact/dialog-window-contact.component';
+import {AuthService, IContact} from '../../auth/auth.service';
+import {DialogWindowContactComponent} from '../dialog-window-contact/dialog-window-contact.component';
 
 @Component({
   selector: 'app-list-contacts',
@@ -14,28 +14,32 @@ import { DialogWindowContactComponent } from '../dialog-window-contact/dialog-wi
   styleUrls: ['./list-contacts.component.css'],
 })
 export class ListContactsComponent implements OnInit {
-  public listContact: Array<IContact> = [];
-  public copyListContactForSearch: Array<IContact> = [];
-  public jpegDefault = 'assets/img/1.jpg';
-  public valueSearch = '';
+
+  listContact: Array<IContact> = [];
+  copyListContactForSearch: Array<IContact> = [];
+  jpegDefault = 'assets/img/1.jpg';
+  valueSearch = '';
+  isLoading = true;
 
   constructor(
     private auth: AuthService,
     private router: Router,
     public dialog: MatDialog,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.auth.getListContact().subscribe(
       listContact => {
         this.listContact = listContact;
         this.copyListContactForSearch = this.listContact;
+        this.isLoading = false;
       },
-        error => console.log(error)
+      error => console.log(error)
     );
   }
 
-  addContact(): void{
+  addContact(): void {
     const dialogRef = this.dialog.open(DialogWindowContactComponent, {
       backdropClass: 'backgroundGrey',
       disableClose: true,
@@ -59,17 +63,17 @@ export class ListContactsComponent implements OnInit {
       .subscribe(
         newContact => this.listContact[i] = newContact,
         error => console.log(error)
-    );
+      );
   }
 
-  deleteContact(i: number, id?: number): void{
+  deleteContact(i: number, id?: number): void {
     this.auth.deleteContact(id as number).subscribe(
       () => this.listContact.splice(i, 1),
       error => console.log(error)
     );
   }
 
-  trackByListContact(): boolean{
+  trackByListContact(): boolean {
     return false;
   }
 

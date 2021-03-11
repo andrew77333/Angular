@@ -20,6 +20,8 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 import { NgxLowerCaseDirectiveModule } from 'ngx-lower-case-directive';
+import { PreloaderDirective } from './directives/preloader.directive';
+import { PreloaderGifDirective } from './directives/preloader-gif.directive';
 
 const modules = [
   CommonModule,
@@ -43,6 +45,8 @@ const modules = [
 
 @NgModule({
   declarations: [
+    PreloaderDirective,
+    PreloaderGifDirective,
   ],
   imports: [
     ...modules,
@@ -51,6 +55,8 @@ const modules = [
   exports: [
     ...modules,
     NgxMaskModule,
+    PreloaderDirective,
+    PreloaderGifDirective,
   ]
 })
 export class SharedModule { }

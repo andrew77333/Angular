@@ -1,7 +1,15 @@
+<section>
+  <button routerLink="/feedback-form" mat-raised-button color="primary">Форма обратной связи</button>
+</section>
+
 <fieldset [formGroup]="formLogIn" align="center" class="d-flex parent">
 
-  <mat-card-title *ngIf="registrationSuccessMessage">Регистрация прошла успешно</mat-card-title>
-  <mat-card-title *ngIf="registrationSuccessMessage">Теперь можете войти в систему))</mat-card-title>
+  <mat-card-title>Авторизация</mat-card-title>
+
+  <small *ngIf="!registrationSuccessMessage">Чтобы войти без регистрации</small>
+  <small *ngIf="!registrationSuccessMessage">Введите телефон 1111111111 и пароль 111</small>
+  <small *ngIf="registrationSuccessMessage">Регистрация прошла успешно</small>
+  <small *ngIf="registrationSuccessMessage">Теперь можете войти в систему))</small>
 
   <mat-form-field appearance="fill">
     <mat-label>Телефон</mat-label>

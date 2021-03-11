@@ -1,0 +1,45 @@
+<section>
+  <button routerLink="/log-in" mat-raised-button color="primary">Войти в приложение</button>
+</section>
+
+<fieldset [formGroup]="feedbackForm" align="center" class="d-flex parent">
+
+  <mat-card-title *ngIf="sendSuccessMessage" class="green">{{ sendSuccessMessage }}</mat-card-title>
+  <mat-card-title>Форма обратной связи</mat-card-title>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ваше имя</mat-label>
+    <input matInput formControlName="nameControl" trim>
+    <mat-icon matSuffix>account_circle</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Телефон</mat-label>
+    <span matPrefix>+7 &nbsp;</span>
+    <input matInput formControlName="phoneControl" type="tel" mask="(000) 000-0000" required>
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Емайл</mat-label>
+    <input formControlName="emailControl" matInput required trim>
+    <mat-icon matSuffix>mail</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Сообщение</mat-label>
+    <textarea formControlName="messageControl" matInput maxlength="500" required trim></textarea>
+  </mat-form-field>
+
+  <section>
+    <button (click)="submit()"
+            [disabled]="!formValid"
+            [style.opacity]="formValid ? 1 : 0.6"
+            mat-raised-button color="primary"
+    >Отправить
+    </button>
+  </section>
+
+  <mat-error *ngIf="error.hasError">{{ error.message }}</mat-error>
+
+</fieldset>

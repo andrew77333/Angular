@@ -5,21 +5,25 @@
   </mat-form-field>
   <section>
     <button mat-raised-button color="primary" (click)="addContact()">Добавить контакт</button>
+    <button routerLink="/requisitions" mat-raised-button color="primary">Оставленные заявки</button>
     <button mat-raised-button color="primary" (click)="logOut()">Выйти</button>
   </section>
 </div>
 
 <div class="container">
-    <mat-card *ngFor="let contact of listContact; index as i; trackBy: trackByListContact" class="example-card myCard">
-        <mat-card-header>
-          <mat-card-title>{{ contact.name }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <img #imgTag mat-card-image [src]="contact.photo" (error)="imgTag.src = jpegDefault">
-          <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="deleteContact(i, contact?.id)">Delete this card</button>
-            <button mat-raised-button color="primary" (click)="editContact(i, contact)">Edit this card</button>
-          </mat-card-actions>
-        </mat-card-content>
-    </mat-card>
+  <mat-card *ngFor="let contact of listContact; index as i; trackBy: trackByListContact" class="example-card myCard">
+    <mat-card-header>
+      <mat-card-title>{{ contact.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div [preloaderGif]="isLoading">
+        <img #imgTag mat-card-image [src]="contact.photo" (error)="imgTag.src = jpegDefault">
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="deleteContact(i, contact?.id)">Delete this card</button>
+        <button mat-raised-button color="primary" (click)="editContact(i, contact)">Edit this card</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
 </div>
+

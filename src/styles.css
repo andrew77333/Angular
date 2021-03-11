@@ -9,6 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: aqua
 
 .flexRow {
   display: flex;
+  justify-content: space-between;
 }
 
 .flexColumn {
@@ -20,4 +21,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: aqua
   background-color: darkslategray;
   opacity: .7 !important;
 }
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10%;
+  border: 0;
+}
+
+mat-card-title, mat-card {
+  margin-bottom: 1vw;
+}
+
+mat-form-field {
+  width: 30vw;
+}
+
+section {
+  margin-bottom: 2vw;
+}
+
+.green {
+  color: greenyellow;
+}
+
 

@@ -22,6 +22,7 @@ export interface IContact {
 })
 export class AuthService {
 
+  // json-server --watch db.json
   private url = 'http://localhost:3000';
 
   constructor(

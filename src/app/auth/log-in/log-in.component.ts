@@ -41,7 +41,7 @@ export class LogInComponent implements OnInit {
     const phone = this.formLogIn.value.phoneControl;
     const password = this.formLogIn.value.passwordControl;
     this.auth.logIn(phone, password).subscribe(
-      res => res ? this.router.navigate(['/list-contacts'])
+      res => res ? this.router.navigate(['/requisitions'])
                       : this.error = { hasError: true, message: 'Неверный телефон или пароль' },
       error => this.error = { hasError: true, message: 'Ошибка сервера. Обратитесь в тех.поддержку' }
     );

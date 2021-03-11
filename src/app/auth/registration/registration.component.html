@@ -1,8 +1,14 @@
+<section>
+  <button routerLink="/feedback-form" mat-raised-button color="primary">Форма обратной связи</button>
+</section>
+
 <fieldset [formGroup]="formRegistration" align="center" class="d-flex parent">
+
+  <mat-card-title>Регистрация</mat-card-title>
 
   <mat-form-field appearance="fill">
     <mat-label>Ваше имя</mat-label>
-    <input #www matInput [(ngModel)]="user.name" formControlName="nameControl" trim>
+    <input matInput [(ngModel)]="user.name" formControlName="nameControl" trim>
     <mat-icon matSuffix>account_circle</mat-icon>
   </mat-form-field>
   <mat-form-field appearance="fill">

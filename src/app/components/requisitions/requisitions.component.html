@@ -1,0 +1,25 @@
+<fieldset align="center" class="flexRow">
+  <section>
+    <button routerLink="/list-contacts" mat-raised-button color="primary">Спискок контактов</button>
+  </section>
+  <section>
+    <button mat-raised-button color="primary" (click)="logOut()">Выйти</button>
+  </section>
+</fieldset>
+
+<fieldset align="center" class="d-flex">
+  <div class="container">
+    <mat-card *ngFor="let requisition of requisitions; index as i;" class="example-card myCard">
+      <mat-card-header>
+        <mat-card-title>
+          {{ (i + 1) + '). <<<' + requisition.name + '>>> <<<' + requisition.email + '>>> <<<' + requisition.phone + '>>>' }}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>{{ requisition.message }} </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-error *ngIf="error.hasError">{{ error.message }}</mat-error>
+
+</fieldset>
+
